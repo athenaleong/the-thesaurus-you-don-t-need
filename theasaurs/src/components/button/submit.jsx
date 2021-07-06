@@ -6,7 +6,7 @@ function SubmitButton(props) {
     const {onClick} = props
     return (
         <SubmitButtonStyled onClick={onClick}>
-
+            Submit
         </SubmitButtonStyled>
     )
 }

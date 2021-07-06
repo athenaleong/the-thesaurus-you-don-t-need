@@ -1,22 +1,33 @@
 import logo from './logo.svg';
 import React, {useState, useRef} from 'react';
 import './App.css';
-import {TitleBox, DescBox, NoteBox, LogoBox, Logo} from './style';
+import {TitleBox, DescBox, NoteBox, LogoBox, Logo, ButtonBox} from './style';
 import {NotePad} from './components/notepad/notepad'
 import penguin from './asset/penguin.png'
 import SubmitButton from './components/button/submit'
+import configData from './config.json'
+import axios from 'axios';
+
+
 
 function App() {
 
-  // const [text, setText] = useState(null)
+  const [isSubmit, setIsSubmit] = useState(false)
   const textRef = useRef()
 
-  function onSubmitClick() {
 
+  function onSubmitClick(sentence) {
+    axios.post(configData.SERVER_URL, 
+      {headers: {"Access-Control-Allow-Origin": '*'}},
+      {sentence: sentence }
+    )
+    .then(function (response) {
+      console.log(response)
+    })
   }
 
   return (
-    <div style={{display:'flex', 'align-items':'center', 'flex-direction': 'column'}}>
+    <div style={{display:'flex', 'alignItems':'center', 'flexDirection': 'column'}}>
       <LogoBox>
         <Logo src={penguin}/>
       </LogoBox>
@@ -27,13 +38,17 @@ function App() {
         <p>Want your writing to sound smarter?</p>
         <p>Why don't you give the thesaurus a try...</p>
       </DescBox>
-      
       <NoteBox>
-        <NotePad textRef={textRef}></NotePad>
+        {!isSubmit && 
+        <NotePad textRef={textRef}></NotePad> }
       </NoteBox>
+      <ButtonBox>
+        {!isSubmit && 
+          <SubmitButton onClick={() => onSubmitClick(textRef.current.value)}>
+          </SubmitButton>}
+        {isSubmit}
+      </ButtonBox>
 
-      <SubmitButton onClick={() => console.log(textRef.current.value)}>
-      </SubmitButton>
       <p>Built with aortic pump by Athena</p>
     </div>
   )

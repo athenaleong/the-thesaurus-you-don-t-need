@@ -48,3 +48,7 @@ export const Logo= styled.img`
     width:110px;
     height: auto;
 `
+
+export const ButtonBox = styled.div`
+    display: flex;
+`
