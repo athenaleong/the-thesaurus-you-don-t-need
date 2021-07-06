@@ -34,6 +34,7 @@ function App() {
 
       <SubmitButton onClick={() => console.log(textRef.current.value)}>
       </SubmitButton>
+      <p>Built with aortic pump by Athena</p>
     </div>
   )
 }
