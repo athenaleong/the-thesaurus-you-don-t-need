@@ -1,7 +1,7 @@
 import os 
 from flask import Flask, send_from_directory, jsonify, request
 import asyncio
-from transform import main
+from . transform import main
 
 
 app = Flask(__name__)
