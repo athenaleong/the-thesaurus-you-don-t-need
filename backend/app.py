@@ -1,8 +1,8 @@
 import os 
 from flask import Flask, send_from_directory, jsonify, request
 import asyncio
-from . transform import main
 from flask_cors import CORS
+from . transform import main
 
 
 app = Flask(__name__)
@@ -16,6 +16,6 @@ def health():
 @app.route('/transform', methods=['GET','POST'])
 def register():
     if request.method == 'POST':
-        sentence = request.form.get('sentence')
+        sentence = request.json.get('sentence')
         return main(sentence)
     return "Unsuccesful", 418
