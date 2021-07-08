@@ -4,7 +4,7 @@ export const ButtonStyled = styled.button`
     border-radius: 32px;
     border: 2px solid black;
     background-color: white;
-    width: 64px;
+    width: ${props => props.width};
     height: 64px;
     display: flex;
     justify-content: center;
@@ -14,6 +14,8 @@ export const ButtonStyled = styled.button`
     bottom: 5px;
     cursor: pointer;
 
+    font-family: 'Gloria Hallelujah', cursive;
+    
     :hover {
         left: 0px;
         bottom: 0px;
@@ -21,7 +23,7 @@ export const ButtonStyled = styled.button`
 `
 
 export const ButtonBackground = styled.div`
-    width: 64px;
+    width: ${props => props.width};
     height: 64px;
     background-color: #FCCA2D;
     border-radius: 32px;

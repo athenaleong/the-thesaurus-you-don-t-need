@@ -47,6 +47,9 @@ export const DescBox = styled.div`
 export const NoteBox = styled.div`
     ${sharedStyle}
     padding: 24px 24px 36px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly
 `
 
 export const ButtonBox = styled.div`

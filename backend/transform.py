@@ -35,14 +35,20 @@ async def getSynonym(word, tag):
             return word
 
 
-async def convertSentence(sentence):
-    text = TweetTokenizer().tokenize(sentence)
-    posTagged = pos_tag(text)
+async def convertSentence(text):
+    length = [len(list(filter(None, TweetTokenizer().tokenize(s)))) for s in text.split('\n')]
+    words = TweetTokenizer().tokenize(text)
+    posTagged = pos_tag(words)
     simplifiedTags = [(word, map_tag('en-ptb', 'universal', tag)) for word, tag in posTagged]
-    newText = []
     coros = [getSynonym(tag[0], tag[1]) for tag in simplifiedTags]
-    newText = await asyncio.gather(*coros)
-    return ' '.join(newText)
+    newSentence = await asyncio.gather(*coros)
+
+    #Combine sentence with whitespace
+    for i in range(0, len(length) - 1):
+        newSentence.insert(length[i], '\n')
+        length[i+1] += length[i] + 1
+
+    return ' '.join(newSentence)
 
 def main(sentence):
     loop = asyncio.new_event_loop()
