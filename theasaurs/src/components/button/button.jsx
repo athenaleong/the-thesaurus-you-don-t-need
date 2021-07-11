@@ -1,5 +1,5 @@
 import React from 'react';
-import {ButtonStyled, ButtonBackground} from './button-style'
+import {ButtonStyled, ButtonBackground, ButtonStyledRect, ButtonBackgroundRect} from './button-style'
 
 function Button(props) {
 
@@ -15,18 +15,28 @@ function Button(props) {
 
 function IconButton(props) {
 
-    var text = <img src={props.icon} style={{width:'64%'}}></img>
+    const {onClick, icon} = props
+    var text = <img src={icon}></img>
 
     return (
-        <Button width='64px' text={text} {...props}></Button>
+        <ButtonBackground width={props.width}>
+            <ButtonStyled onClick={onClick} width={props.width}>
+                {text}
+            </ButtonStyled>
+        </ButtonBackground>
     )
 }
 
 function TextButton(props) {
 
-    var text = <p>{props.text}</p>
+    const {onClick, icon, text} = props
+
     return (
-        <Button {...props} width='104px' text={text}></Button>
+        <ButtonBackgroundRect width={props.width}>
+            <ButtonStyledRect onClick={onClick} width={props.width}>
+                {text}
+            </ButtonStyledRect>
+        </ButtonBackgroundRect>
     )
 }
 export {TextButton, IconButton}

@@ -15,7 +15,7 @@ import tick from './asset/tick.png'
 import rocket from './asset/rocket.png'
 
 //components
-import {TitleBox, DescBox, NoteBox, LogoBox, Logo, ButtonBox, FooterMessage} from './style';
+import {Body, TitleBox, DescBox, NoteBox, LogoBox, Logo, ButtonBox, FooterMessage} from './style';
 import {NotePad, ReadOnlyNotePad} from './components/notepad/notepad'
 import {TextButton, IconButton} from './components/button/button'
 import {Spinner} from './components/spinner/spinner'
@@ -42,10 +42,10 @@ function App() {
     var scale = 1
     domtoimage.toPng(node)
     .then(function (dataUrl) {
-        var img = new Image();
-        img.src = dataUrl;
-        console.log(dataUrl)
-        document.body.appendChild(img);
+      var link = document.createElement('a');
+      link.download = 'aortic-pump.jpeg';
+      link.href = dataUrl;
+      link.click();
     })
     .catch(function (error) {
         console.error('oops, something went wrong!', error);
@@ -53,9 +53,8 @@ function App() {
   }
 
   function onSubmitClick(sentence) {
-    sentence != "" && 
-      console.log(sentence)
-      setIsLoading(true)
+    if (sentence != "")
+     { setIsLoading(true)
       axios.post(configData.SERVER_URL, 
         {"sentence": sentence}
       )
@@ -65,7 +64,7 @@ function App() {
         setOutput(response.data)
         setIsSubmit(true);
         resultRef.current.value = response.data
-      })
+      })}
   }
 
   function onToggleClick() {
@@ -78,7 +77,7 @@ function App() {
   }
 
   return (
-    <div style={{display:'flex', 'alignItems':'center', 'flexDirection': 'column'}}>
+    <Body>
 
       <LogoBox>
         <Logo src={penguin}/>
@@ -120,7 +119,7 @@ function App() {
         <p>Built with aortic pump by Athena</p>
         <p>Inspired by The one with the thesaurus</p>
         </FooterMessage>
-    </div>
+      </Body>
   )
 }
 

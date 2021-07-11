@@ -1,10 +1,10 @@
 import React from 'react';
-import {NotePadDiv, NotePadTextArea, NotePadIcon, Penguin} from './style'
+import {NotePadDiv,NotePadInnerDiv, NotePadTextArea, NotePadIcon, Penguin} from './style'
 import penguin from '../../asset/penguin.png'
 
 function auto_grow(element) {
     element = element.target
-    // element.style.height = "0px";
+    element.style.height = "0px";
     element.style.height = (element.scrollHeight - 59)+"px";
   }
   
@@ -14,12 +14,14 @@ function NotePad(props) {
     const {textRef, readOnly, value} = props;
     return (
     <NotePadDiv>
-     <NotePadTextArea onInput={(element) => auto_grow(element)} maxLength="500" placeholder="Insert text here ..." ref={textRef} readOnly={readOnly}>
-     </NotePadTextArea>
-    <NotePadIcon>
-        <p>#aorticpump</p>
-        <Penguin src={penguin}/>
-    </NotePadIcon>
+        <NotePadInnerDiv>
+            <NotePadTextArea onInput={(element) => auto_grow(element)} maxLength="500" placeholder="Insert text here ..." ref={textRef} readOnly={readOnly}>
+            </NotePadTextArea>
+            <NotePadIcon>
+                <p>#aorticpump</p>
+                <Penguin src={penguin}/>
+            </NotePadIcon>
+        </NotePadInnerDiv>
     </NotePadDiv>
     )
 }
