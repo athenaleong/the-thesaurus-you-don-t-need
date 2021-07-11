@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {Spinner} from './components/spinner/spinner'
 
 
 ReactDOM.render(
