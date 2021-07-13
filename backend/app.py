@@ -5,9 +5,8 @@ from flask_cors import CORS
 from . transform import main
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../frontend/build", static_url_path="/static")
 CORS(app)
-
 
 @app.route('/health', methods=[ 'GET' ])
 def health():

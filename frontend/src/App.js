@@ -84,7 +84,7 @@ function App() {
       </LogoBox>
 
       <TitleBox>
-        <p>Sentence Sophiscator</p>
+        <p>Sentence Sophisticator</p>
       </TitleBox>
 
       <DescBox>
