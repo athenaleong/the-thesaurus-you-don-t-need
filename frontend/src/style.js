@@ -47,6 +47,7 @@ export const TitleBox = styled.div`
     display: flex;
     font-size: ${px2vw(52)};
     justify-content: center;
+    margin-bottom: ${px2vw(24)};
 
     p {
         margin: 0;
@@ -56,10 +57,12 @@ export const TitleBox = styled.div`
 
     @media (max-width: 1024px) {
         font-size: ${px2vw(72, 1024)};
+        margin-bottom: ${px2vw(24, 1024)};
     }
 
     @media (max-width: 768px) {
         font-size: ${px2vw(64, 768)};
+        margin-bottom: ${px2vw(24, 768)};
     }
 
     
@@ -74,7 +77,9 @@ export const DescBox = styled.div`
     margin-bottom: 24px;
 
     p {
-        margin: 0
+        margin: 2px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
     }
 
     @media (max-width: 1024px) {
@@ -126,6 +131,11 @@ export const FooterMessage = styled.p`
     p {
         text-align:center;
         margin: 0;
+    }
+
+    a {
+        margin-left: 16px;
+        color: inherit;
     }
 
     @media (max-width: 1024px) {

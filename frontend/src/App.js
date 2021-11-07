@@ -88,7 +88,7 @@ function App() {
       </TitleBox>
 
       <DescBox>
-        <p>Want your writing to sound smarter?</p>
+        <p>Want your writing to sound more sophisticated?</p>
         <p>Why don't you give the thesaurus a try...</p>
       </DescBox>
 
@@ -117,7 +117,11 @@ function App() {
 
       <FooterMessage>
         <p>Built with aortic pump by Athena</p>
-        <p>Inspired by The one with the thesaurus</p>
+        <p>Inspired by 
+            <a href="https://www.youtube.com/watch?v=LcM4zWiikKQ" target="_blank">
+              The one with the thesaurus
+            </a>
+          </p>
         </FooterMessage>
       </Body>
   )

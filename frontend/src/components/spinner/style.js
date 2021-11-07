@@ -5,4 +5,5 @@ export const LoaderDiv = styled.div`
     justify-content:center;
     flex-direction: column;
     align-items: center;
+    // height: 50vh;
 `

@@ -15,7 +15,7 @@ function NotePad(props) {
     return (
     <NotePadDiv>
         <NotePadInnerDiv>
-            <NotePadTextArea onInput={(element) => auto_grow(element)} maxLength="500" placeholder="Insert text here ..." ref={textRef} readOnly={readOnly}>
+            <NotePadTextArea onInput={(element) => auto_grow(element)} maxLength="500" placeholder="Insert writing here ... " ref={textRef} readOnly={readOnly}>
             </NotePadTextArea>
             <NotePadIcon>
                 <p>#aorticpump</p>
